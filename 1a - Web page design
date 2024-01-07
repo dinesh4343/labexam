@@ -1,0 +1,129 @@
+1
+EX NO 1a. WEB PAGE DESIGN
+Aim:
+Develop a web page using all basic HTML Tags.
+Procedure:
+Step 1: Create a HTML document.
+Step 2: Including the image of the college in the html document using the <IMG>
+tag. Step 3: Using <FRAMESET> tag divide the html page as preferred.
+Step 4: Create relevant web pages for the college and display the menu in the left side of the
+window.
+Step 5: Make the respective forms to be displayed in the right side of web page when the menu
+is clicked.
+Source Code:
+main.htm
+<html>
+<title>SRI SAIRAM INSTITUTE OF TECHNOLOGY</title>
+<frameset cols="35%,30%,35%">
+<frame name="1" src="f1.htm">
+<frame name="2" src="f2.htm">
+<frame name="3" src="f3.htm">
+</frameset>
+<a href="f1.htm"> IMAGE </a>
+</html>
+f1.htm
+<html>
+<title>college</title>
+<head>SSIT</head>
+<body>
+<body bgcolor="white">
+<img src="C:\Users\student\Pictures\ssit.jpg" height="500" width="380">
+</body>
+</html>
+f3.htm
+<html>
+<head><h2><font color="black">HOME</h2></font><body>
+<body bgcolor="pink">
+<h4><li>Sri Sairam Institue of Technology is one of the top most colleges under Anna
+2
+University</li>
+<li>The college aims for providing the students through knowledge and discipline</li>
+<li>The vision of our college is <br>TRUTH<br>PEACE<br>LOVE</li>
+</h4>
+</body>
+</head>
+</html>
+f2.htm
+<html>
+<head><h1><font color="Black">MENU</h1></font></head>
+<body>
+<body bgcolor="grey">
+<li><a href="courses.htm">COURSES</a></li>
+<li><a href="academics.htm">ACADEMICS</a></li>
+<li><a href="achievements.htm">ACHIEVEMENTS</a></li>
+<li><a href="contact.htm">CONTACT</a></li>
+</body>
+</html>
+courses.htm
+<html>
+<head><h2><font color="white">COURSES</font><h2>
+<title>course</title>
+<body>
+<body bgcolor="blue">
+<h3><li>ECE</li></h3>
+<h3><li>EEE</li></h3>
+<h3><li>CSE</li></h3>
+<h3><li>IT</li></h3>
+</body>
+</head>
+</html>
+academics.htm
+<html>
+<head><h2><font color="white">ACADEMICS</font></h2>
+<body>
+<body bgcolor="lavender">
+<h4>Rules</h4>
+<li>Students must attend the classes regularly</li>
+<li>Attendance must be above 90% for every individual</li>
+<li>Formal shirts and pants are only allowed</li>
+<li>Jeans pant and t shirts and half sarees are also not allowed</li>
+<h4>Pass percentage</h4>
+<table>
+3
+<tr>
+<th>Year</th>
+<th>Pass Percentage</th>
+<th>No. of University Ranks</th>
+</tr>
+<tr>
+<td>2009</td>
+<td>97.6</td>
+<td>7</td
+</tr>
+<tr>
+<td>2010</td>
+<td>96</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>98.3</td>
+<td>12</td>
+</tr>
+</table>
+</head>
+</body>
+</html>
+achievements.htm
+<html>
+<title>Rank holders</title>
+<body>
+<body bgcolor="purple">
+<head><h2><font color="white">ACHIEVEMENTS OF SSIT</font></h2>
+<li>3 universtiy rank holders</li>
+<li>Pass Percentage 96% </li>
+<li>100% placement for eligible students</li>
+<li>Experienced staffs</li>
+</head>
+</body>
+</html>
+contact.htm
+<html>
+<head><h2><font color="white"> CONTACT </font></h2></head>
+<body>
+<body bgcolor="orange">
+<p>Sri Sairam Institute of Technology<br>
+Sai Leo Nagar<br>
+West Tambaram<br>
+Chennai-44.<br>
+E-mail:www.sairamit.edu.in</p>
