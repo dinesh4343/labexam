@@ -1,17 +1,5 @@
-1
-EX NO 1a. WEB PAGE DESIGN
-Aim:
-Develop a web page using all basic HTML Tags.
-Procedure:
-Step 1: Create a HTML document.
-Step 2: Including the image of the college in the html document using the <IMG>
-tag. Step 3: Using <FRAMESET> tag divide the html page as preferred.
-Step 4: Create relevant web pages for the college and display the menu in the left side of the
-window.
-Step 5: Make the respective forms to be displayed in the right side of web page when the menu
-is clicked.
-Source Code:
-main.htm
+main.htm:
+
 <html>
 <title>SRI SAIRAM INSTITUTE OF TECHNOLOGY</title>
 <frameset cols="35%,30%,35%">
@@ -21,7 +9,10 @@ main.htm
 </frameset>
 <a href="f1.htm"> IMAGE </a>
 </html>
-f1.htm
+
+
+f1.htm:
+
 <html>
 <title>college</title>
 <head>SSIT</head>
@@ -30,12 +21,14 @@ f1.htm
 <img src="C:\Users\student\Pictures\ssit.jpg" height="500" width="380">
 </body>
 </html>
-f3.htm
+
+
+f3.htm:
+
 <html>
 <head><h2><font color="black">HOME</h2></font><body>
 <body bgcolor="pink">
 <h4><li>Sri Sairam Institue of Technology is one of the top most colleges under Anna
-2
 University</li>
 <li>The college aims for providing the students through knowledge and discipline</li>
 <li>The vision of our college is <br>TRUTH<br>PEACE<br>LOVE</li>
@@ -43,7 +36,10 @@ University</li>
 </body>
 </head>
 </html>
-f2.htm
+
+
+f2.htm:
+
 <html>
 <head><h1><font color="Black">MENU</h1></font></head>
 <body>
@@ -54,7 +50,10 @@ f2.htm
 <li><a href="contact.htm">CONTACT</a></li>
 </body>
 </html>
-courses.htm
+
+
+courses.htm:
+
 <html>
 <head><h2><font color="white">COURSES</font><h2>
 <title>course</title>
@@ -67,7 +66,10 @@ courses.htm
 </body>
 </head>
 </html>
-academics.htm
+
+
+academics.htm:
+
 <html>
 <head><h2><font color="white">ACADEMICS</font></h2>
 <body>
@@ -79,7 +81,6 @@ academics.htm
 <li>Jeans pant and t shirts and half sarees are also not allowed</li>
 <h4>Pass percentage</h4>
 <table>
-3
 <tr>
 <th>Year</th>
 <th>Pass Percentage</th>
@@ -104,7 +105,10 @@ academics.htm
 </head>
 </body>
 </html>
-achievements.htm
+
+
+achievements.htm:
+
 <html>
 <title>Rank holders</title>
 <body>
@@ -117,7 +121,10 @@ achievements.htm
 </head>
 </body>
 </html>
-contact.htm
+
+
+contact.htm:
+
 <html>
 <head><h2><font color="white"> CONTACT </font></h2></head>
 <body>
