@@ -1,0 +1,80 @@
+Index.jsp:
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h5>STUDENT INFORMATION SYSTEM</h5>
+<form action="newjsp.jsp" method="get">
+<input type="text" name="t1"></input>
+<input type="submit" value="submit"></input>
+</form>
+</body>
+</html>
+
+
+Newjsp.jsp:
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*;" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Esp Page</title>
+</head>
+<body>
+<%!String name;%>
+<%! int id,d,m;%>
+<table border="2px" align="center">
+<tr>
+<th> rollno</th>
+<th> mark1 </th>
+<th> mark2 </th>
+</tr>
+<%
+try
+{
+id=Integer.parseInt(request.getParameter("t1"));
+//String name=request.getParameter("t1");
+out.println(id);
+Class.forName("org.apache.derby.jdbc.ClientDriver");
+Connection con=DriverManager.getConnection("jdbc:derby://l
+ocalhost:1527/SDB","sairam","sairam");
+out.println
+("connected");
+Statement stmt=con.createStatement();
+out.println("hi");
+ResultSet rs= stmt.executeQuery("select * from student.m3 where rollno="+id);
+out.println("hi");
+while(rs.next())
+{
+id=rs.getInt("rollno");
+d=rs.getInt("mark1");
+m=rs.getInt("mark2");
+%>
+<tr>
+<td><%=id%></td>
+<td><%=d%></td>
+<td><%=m%></td>
+</tr>
+<%
+}
+}
+catch(Exception e)
+{}
+%>
+</table>
+</body>
+</html>
+
+
+Student Table:
+
+ROLLNO MARK1 MARK2
+1 96 98
+2 66 88
+3 75 83
