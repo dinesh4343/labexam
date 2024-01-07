@@ -1,0 +1,137 @@
+DATABASE FOR AIRLINE RESERVATION:
+
+Name         Null?      Type
+NUM                   NUMBER(10)
+NAME                 VARCHAR2(15)
+START_FROM           VARCHAR2(15)
+DEST                 VARCHAR2(15)
+
+NUM      NAME            START_FROM      DEST
+1001   british airways      pune        chennai
+2001   air india           mumbai        pune
+3001  indian airlines     chennai        pune
+2002   airindia           chennai       mumbai
+1002  british airways     chennai        pune
+
+
+Source code:
+
+AIRLINE RESERVATION WEB SERVICE:
+
+package airinfo;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+import java.sql.*;
+@WebService( name="Test", serviceName = "TestDB" )
+public class TestDB {
+@WebMethod(operationName = "getInfo")
+public String getInfo(@WebParam(name = "src")
+String src, @WebParam(name = "dest")
+String dest) {
+String str="";
+try
+{
+Class.forName("org.apache.derby.jdbc.ClientDriver");
+Connection con=DriverManager.getConnection("jdbc:derby://localhost:1527/SDB","sairam","sairam");
+Statement s=con.createStatement();
+if(src.equals("mumbai"))
+{
+if(dest.equals("pune"))
+s.executeQuery("SELECT * FROM student. airways_table WHERE Start_from='mumbai'
+AND Dest='pune'");
+else if(dest.equals("chennai"))
+s.executeQuery("SELECT * FROM student.airways_table WHERE Start_from='mumbai'
+AND Dest='chennai'");
+}
+else if(src.equals("pune"))
+{
+if(dest.equals("mumbai"))
+s.executeQuery("SELECT * FROM student.airways_table WHERE Start_from='pune'
+AND Dest='mumbai'");
+else if(dest.equals("chennai"))
+s.executeQuery("SELECT * FROM student.airways_table WHERE Start_from='pune' AND Dest='chennai'");
+}
+else if(src.equals("chennai"))
+{
+if(dest.equals("pune"))
+s.executeQuery("SELECT * FROM student.airways_table WHERE Start_from='chennai'
+AND Dest='pune'");
+else if(dest.equals("Mumbai"))
+s.executeQuery("SELECT * FROM student.airways_table WHERE Start_from='chennai'
+AND Dest='mumbai'");
+}
+ResultSet rs=s.getResultSet();
+str+="<table border=1>";
+while(rs.next())
+{
+str+="<tr><b>";
+str+="<td>";
+str+=rs.getString("name");
+str+="</td>";
+str+="</tr></b>";
+}
+str+="</table>";
+}catch(ClassNotFoundException ex)
+{
+System.out.println(ex);
+}
+catch(SQLException ex)
+{
+System.out.println(ex);
+}
+return str;
+}
+}
+
+
+AIRLINE RESERVATION CLIENT:
+
+index.jsp:
+
+<html>
+<head>
+<title>AIRLINE RESERVATION SYSTEM</title>
+</head>
+<body bgcolor="khaki">
+<center>
+<h4>Travel Agent should fill up following information to get information about the
+Airline</h4>
+<form name="form1" method=GET action ="reserve.jsp">
+<table>
+<tr>
+<td><b>Source city: </b></td>
+<td><input type="text" name="Src_name" size="20" value=""></td>
+</tr>
+<tr>
+<td><b>Destination city: </b></td>
+<td><input type="text" name="Dest_name" size="20" value=""></td>
+</tr>
+<tr>
+<td><input type="submit" value="Submit"></td>
+</tr>
+</table>
+</form>
+</center>
+</body>
+</html>
+reserve.jsp
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+Airline Seat Confirmation
+<%
+String a1=request.getParameter("Src_name");
+String a2=request.getParameter("Dest_name");
+%>
+<%-- start web service invocation --%>
+<%
+try {
+air.TestDB_Service service =new air.TestDB_Service();
+air. TestDB port = service.get TestDB Port();
+String result = port.get(a1, a2);
+%>
+<%
+} catch (Exception ex) {
+ex.printStackTrace();
+}
+%>
+<%-- end web service invocation --%>
