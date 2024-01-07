@@ -1,0 +1,81 @@
+Inline Css:
+
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Inline CSS Example</title>
+</head>
+<body>
+<p style="color: red; font-size: 18px;">This is a paragraph with inline CSS styling.</p>
+</body>
+</html>
+
+
+Internal Css:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Internal CSS Example</title>
+<style>
+.container {
+position: relative;
+}
+.text-block {
+position: absolute;
+top: 20px;
+left: 20px;
+background-color: black;
+color: white;
+padding-left: 20px;
+padding-right: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<img src="C:\Users\Divya Transport\Desktop\istock-664061854-scaled.jpg" alt="internal css
+example" width="1500" height="800">
+<div class="text-block">
+<h1>WEB TECHNOLOGY</h1>
+</div>
+</body>
+</html>
+
+
+External Css :
+
+external.html:
+
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" href="styles.css">
+<title>External CSS Example</title>
+</head>
+<body>
+<body bgcolor="#B6D0E2">
+<h1>Welcome to my website</h1>
+<p>This is an example of using external CSS to style HTML elements.</p>
+<form>
+Username:<input type="text" size="20">@gmail.com<br>
+Password:<input type="password" name="pwd"><br>
+<input type="submit">
+</form>
+</body>
+</html>
+
+
+styles.css:
+
+body {
+font-family: Arial, sans-serif;
+}
+h1 {
+color: red;
+}
+p {
+font-size: 16px;
+10
+}
