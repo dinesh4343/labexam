@@ -1,0 +1,67 @@
+dom.java:
+
+import java.io.*;
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import org.xml.sax.*;
+public class dom{
+   public static void main(String []arg){
+      try{
+         System.out.println("Enter the name of xmldoc");
+         BufferedReader input=new BufferedReader(new InputStreamReader(System.in));
+         String fname=input.readLine();
+         File fp=new File(fname);
+         if(fp.exists()){
+            try{
+               DocumentBuilderFactory fobj=DocumentBuilderFactory.newInstance();
+               DocumentBuilder builder=fobj.newDocumentBuilder();
+               InputSource ipsrc=new InputSource(fname);
+               Document doc=builder.parse(ipsrc);
+               System.out.println(fname+"is wellformed");  
+            }
+            catch(Exception e){
+               System.out.println(fname+"is not allowed");
+            }
+         }
+      }
+      catch(Exception e){
+      }
+   }
+}
+
+xmldom.xml:
+
+<student>
+<p_info>
+<name>Maragatham</name>
+<dept>it</dept>
+</p_info>
+</student>
+
+sax.java:
+
+import java.io.*;
+import org.xml.sax.*;
+import org.xml.sax.helpers.*;
+public class sax{
+   public static void main(String []arg){
+      try{
+         System.out.println("Enter the name of xml document");
+         BufferedReader input=new BufferedReader(new InputStreamReader(System.in));
+         String fname=input.readLine();
+         File fp=new File(fname);
+         if(fp.exists()){
+            try{
+               XMLReader reader=XMLReaderFactory.createXMLReader();
+               reader.parse(fname);
+               System.out.println(fname+"is well formed");
+            }
+            catch(Exception e){
+               System.out.println(fname+"is not well formed");
+            }
+         }
+      }
+      catch(Exception e){
+      }
+   }
+}
