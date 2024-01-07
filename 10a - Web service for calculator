@@ -1,0 +1,53 @@
+Calcservice.java
+package calpack;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+49
+import javax.jws.WebParam;
+import javax.ejb.Stateless;
+/**
+*
+* @author student
+*/
+@WebService(serviceName = "Calcservice")
+@Stateless()
+public class Calcservice {
+/** This is a sample web service operation */
+/**
+* Web service operation
+*/
+@WebMethod(operationName = "add")
+public int add(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
+//TODO write your implementation code here:
+return a+b;
+}
+/**
+* Web service operation
+*/
+@WebMethod(operationName = "sub")
+public int sub(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
+//TODO write your implementation code here:
+return a-b;
+}
+/**
+* Web service operation
+*/
+@WebMethod(operationName = "mult")
+public int mult(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
+//TODO write your implementation code here:
+return a*b;
+}
+/**
+* Web service operation
+*/
+@WebMethod(operationName = "divide")
+public double divide(@WebParam(name = "a") double a, @WebParam(name = "b") double b) {
+//TODO write your implementation code here:
+return a/b;
+}
+}
+INDEX.JSP
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+51
