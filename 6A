@@ -1,0 +1,86 @@
+<form method="get" action="NewServlet">
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Online Exam</title>
+</head>
+<body>
+<form method="get" action="three">
+method="get">
+<h3>1.Who invented the Mainframe System?</h3>
+<input type="radio" name="s1" value="IBM">ibm</input><br></br>
+<input type="radio" name="s1" value="MICROSOFT">microsoft</input><br></br>
+<input type="radio" name="s1" value="INFOSYS">infosys</input><br></br>
+<input type="radio" name="s1" value="CISCO">cisco</input><br></br>
+<h3>2.What is the capital of Sri Lanka?</h3>
+<input type="radio" name="s2" value="MADRID">madrid</input><br></br>
+<input type="radio" name="s2" value="COLOMBO">colombo</input><br></br>
+<input type="radio" name="s2" value="DELHI">delhi</input><br></br>
+<input type="radio" name="s2" value="MOSCOW">moscow</input><br></br>
+<h3>3.What is the National Game of INDIA?</h3>
+<input type="radio" name="s3" value="HOCKEY">hockey</input><br></br>
+<input type="radio" name="s3" value="CRICKET">cricket</input><br></br>
+<input type="radio" name="s3" value="FOOTBALL">football</input><br></br>
+<input type="radio" name="s3" value="VOLLEY BALL">volleyball</input><br></br>
+<h3>4.What is the NATO name of SUKHOI jets?</h3>
+<input type="radio" name="s4" value="FLANKERS">flankers</input><br></br>
+<input type="radio" name="s4" value="FOXBOAT">foxboat</input><br></br>
+<input type="radio" name="s4" value="FISHBOAT">fishboat</input><br></br>
+<input type="radio" name="s4" value="FOXROT">foxrot</input><br></br>
+<h3>5.What wasthe first name of Graphical browser?</h3>
+<input type="radio" name="s5" value="NETSCAPE">netscape</input><br></br>
+<input type="radio" name="s5" value="IE">ie</input><br></br>
+<input type="radio" name="s5" value="MOZILLA">mozilla</input><br></br>
+<input type="radio" name="s5" value="OPERA">opera</input><br></br>
+<input type="submit" value="submit"></input></form>
+</body>
+</html>
+
+
+Servlet code:
+
+package tier;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+@WebServlet(name = "three", urlPatterns = {"/three"})
+public class three extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+response.setContentType("text/html;charset=UTF-8");
+PrintWriter out = response.getWriter();
+int score=0;
+try {
+String str=request.getParameter("s1");
+if(str.equals("IBM"))
+score++;
+str=request.getParameter("s2");
+if(str.equals("COLOMBO"))
+score++;
+str=request.getParameter("s3");
+if(str.equals("HOCKEY"))
+score++;
+str=request.getParameter("s4");
+if(str.equals("FLANKERS"))
+score++;
+str=request.getParameter("s5");
+if(str.equals("MOZILLA"))
+score++;
+out.println("<html>");
+out.println("<head>");
+out.println("<title>Three tier</title>");
+out.println("</head>");
+out.println("<body> <p> THE TOTAL SCORE IS:</p>");
+out.println(Integer.toString(score));
+out.println("</body>");
+out.println("</html>");
+} finally {
+out.close();
+}
+}
+}
