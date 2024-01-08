@@ -1,53 +1,64 @@
-Calcservice.java
+Calcservice.java:
+
 package calpack;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-49
 import javax.jws.WebParam;
 import javax.ejb.Stateless;
-/**
-*
-* @author student
-*/
 @WebService(serviceName = "Calcservice")
 @Stateless()
 public class Calcservice {
-/** This is a sample web service operation */
-/**
-* Web service operation
-*/
 @WebMethod(operationName = "add")
 public int add(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
-//TODO write your implementation code here:
 return a+b;
 }
-/**
-* Web service operation
-*/
 @WebMethod(operationName = "sub")
 public int sub(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
-//TODO write your implementation code here:
 return a-b;
 }
-/**
-* Web service operation
-*/
 @WebMethod(operationName = "mult")
 public int mult(@WebParam(name = "a") int a, @WebParam(name = "b") int b) {
-//TODO write your implementation code here:
 return a*b;
 }
-/**
-* Web service operation
-*/
 @WebMethod(operationName = "divide")
 public double divide(@WebParam(name = "a") double a, @WebParam(name = "b") double b) {
-//TODO write your implementation code here:
 return a/b;
 }
 }
-INDEX.JSP
+
+
+INDEX.JSP:
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-51
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+</head>
+<body>
+<h1>
+Calculator
+</h1>
+<%
+try
+{
+calpack.Calcservice_Service service=new calpack.Calcservice_Service();
+calpack.Calcservice port=service.getCalcservicePort();
+int a=0;
+int b=0;
+int result1=port.add(5, 6);
+int result2=port.mult(5, 6);
+int result3=port.sub(6, 5);
+double result4=port.divide(85.5, 5.5);
+out.println("<b>Sum</b> ="+result1);
+out.println("<br><b>Difference</b>="+result3);
+out.println("<br><b>Product</b> ="+result2);
+out.println("<br><b>Quotient</b> ="+result4);
+}
+catch(Exception e)
+{
+}
+%>
+</body>
+</html>
